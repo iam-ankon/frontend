@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const OrderList = () => {
   const [orders, setOrders] = useState([]);
 
   // Fetch data from the backend API when the component mounts
   useEffect(() => {
-    axios.get('http://localhost:8000/orders/')
-      .then(response => {
+    axios
+      .get("http://127.0.0.1:8000/DatabaseDesign/orders/")
+      .then((response) => {
         setOrders(response.data);
       })
-      .catch(error => {
-        console.error('There was an error fetching the orders!', error);
+      .catch((error) => {
+        console.error("There was an error fetching the orders!", error);
       });
   }, []);
 
