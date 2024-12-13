@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const TotalInquiryList = () => {
   const [totalInquiries, setTotalInquiries] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/total-inquiries/')
-      .then(response => {
+    axios
+      .get("http://localhost:8000/InquiryDatabase/inquiries/")
+      .then((response) => {
         setTotalInquiries(response.data);
       })
-      .catch(error => {
-        console.error('Error fetching total inquiries:', error);
+      .catch((error) => {
+        console.error("Error fetching total inquiries:", error);
       });
   }, []);
 
@@ -27,9 +28,9 @@ const TotalInquiryList = () => {
           </tr>
         </thead>
         <tbody>
-          {totalInquiries.map(inquiry => (
+          {totalInquiries.map((inquiry) => (
             <tr key={inquiry.id}>
-              <td>{inquiry.inquiry.inquiry_no}</td>
+              <td>{inquiry.inquiry_no}</td>
               <td>{new Date(inquiry.added_at).toLocaleString()}</td>
               <td>
                 <Link to={`/total-inquiries/${inquiry.id}`}>View Details</Link>

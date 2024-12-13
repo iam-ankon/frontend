@@ -30,6 +30,7 @@ import InquiryDetailstutas from "./components/InquiryDetailstutas";
 import InquiryFilter from "./components/InquiryFilter";
 import TotalInquiryList from "./components/TotalInquiryList";
 import TotalInquiryDetail from "./components/TotalInquiryDetail";
+import HomePage from "./components/Home";
 
 const App = () => {
   return (
@@ -54,6 +55,7 @@ const App = () => {
         </ul>
       </nav> */}
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/order" element={<OrderList />} />
         <Route path="/orders/:id" element={<OrderDetail />} />
         <Route path="/Own-Costing" element={<OwnCostingList />} />
